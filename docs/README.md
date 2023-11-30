@@ -102,3 +102,17 @@
 ```
 [ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.
 ```
+
+
+### domain
+- Buyer (Ticket 포함)
+  - 로또 구매량
+- Ticket
+  - 구매한 티켓의 로또 번호
+- Lotto
+  - 로또 번호
+- Bonus
+  - 보너스 번호
+- ScoreBoard
+  - 당첨 내역
+  - 수익률
