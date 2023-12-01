@@ -33,7 +33,6 @@ public class Buyer {
     }
 
     private void validateStringBuyPrice(String buyPrice) {
-        Validate.checkStringNotBlank(buyPrice);
         Validate.checkStringNotNumber(buyPrice);
         Validate.checkStringLowerThanBaseNumber(1000, buyPrice);
         Validate.checkStringNotSpecifiedUnitNumber(1000, buyPrice);

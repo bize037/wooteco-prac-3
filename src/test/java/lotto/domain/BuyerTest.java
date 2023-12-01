@@ -15,14 +15,6 @@ public class BuyerTest {
         assertThat(buyer.getTicketCount()).isEqualTo(ticketCount);
     }
 
-    @ValueSource(strings = {"", " "})
-    @ParameterizedTest
-    void buyPriceValidateNotBlankTest(String inputBuyPrice) {
-        assertThatThrownBy(() -> new Buyer(inputBuyPrice))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.NOT_BLANK.getMessage());
-    }
-
     @ValueSource(strings = {"-1000", "1000d", "asdf000", "zcxv"})
     @ParameterizedTest
     void buyPriceValidateNotNumberTest(String inputBuyPrice) {
