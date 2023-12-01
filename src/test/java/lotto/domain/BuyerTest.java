@@ -3,6 +3,7 @@ package lotto.domain;
 import static org.assertj.core.api.Assertions.*;
 
 import lotto.common.constants.ErrorMessage;
+import lotto.common.constants.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -13,7 +14,7 @@ public class BuyerTest {
     @ParameterizedTest
     void inputBuyPriceTest(String inputBuyPrice) {
         Buyer buyer = new Buyer(inputBuyPrice);
-        int ticketCount = Integer.parseInt(inputBuyPrice) / 1000;
+        int ticketCount = Integer.parseInt(inputBuyPrice) / Rule.TICKET_PRICE.getRule();
         assertThat(buyer.getTicketCount()).isEqualTo(ticketCount);
     }
 
