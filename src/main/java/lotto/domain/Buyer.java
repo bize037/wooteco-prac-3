@@ -7,17 +7,17 @@ import lotto.common.validate.Validate;
 public class Buyer {
     private Ticket ticket = new Ticket();
 
-    private final int buyPrice;
+    private final int ticketCount;
     private final List<List<Integer>> purchaseTickets;
 
     public Buyer(String buyPrice) {
         validateStringBuyPrice(buyPrice);
-        this.buyPrice = Integer.parseInt(buyPrice);
+        this.ticketCount = Integer.parseInt(buyPrice) / 1000;
         this.purchaseTickets = addPurchaseTickets(ticket);
     }
 
     public int getTicketCount() {
-        return buyPrice / 1000;
+        return ticketCount;
     }
 
     public List<List<Integer>> getPurchaseTickets() {
