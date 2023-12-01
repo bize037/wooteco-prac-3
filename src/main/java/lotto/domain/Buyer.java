@@ -32,6 +32,7 @@ public class Buyer {
         return newPurchaseTickets;
     }
 
+    // 예외 처리 메서드
     private void validateStringBuyPrice(String buyPrice) {
         Validate.checkStringNotBlank(buyPrice);
         Validate.checkStringNotNumber(buyPrice);
