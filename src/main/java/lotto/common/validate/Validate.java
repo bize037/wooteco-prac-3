@@ -1,5 +1,6 @@
 package lotto.common.validate;
 
+import java.util.List;
 import lotto.common.constants.ErrorMessage;
 
 public class Validate {
@@ -24,6 +25,30 @@ public class Validate {
     public static void checkStringNotSpecifiedUnitNumber(int unit, String input) {
         if (Integer.parseInt(input) % unit != 0) {
             throw new IllegalArgumentException(ErrorMessage.NOT_SPECIFIED_UNIT_NUMBER.getMessage());
+        }
+    }
+
+    public static void checkIntNotOutOfRange(int minRange, int maxRange, int input) {
+        if (input < minRange || input > maxRange) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_OUT_OF_RANGE.getMessage());
+        }
+    }
+
+    public static void checkListNotSameSize(int expectSize, List<Integer> inputs) {
+        if (inputs.size() != expectSize) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_SAME_SIZE.getMessage());
+        }
+    }
+
+    public static void checkListNotSameValue(int compareValue, List<Integer> inputs) {
+        inputs.forEach(input -> {
+            checkIntNotSameValue(input, compareValue);
+        });
+    }
+
+    private static void checkIntNotSameValue(int compareValue1, int compareValue2) {
+        if (compareValue1 == compareValue2) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_SAME_VALUE.getMessage());
         }
     }
 }
