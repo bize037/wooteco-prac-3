@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.common.validate.Validate;
 
 public class Buyer {
     private Ticket ticket = new Ticket();
@@ -32,6 +33,9 @@ public class Buyer {
     }
 
     private void validateStringBuyPrice(String buyPrice) {
-        // 추후 추가
+        Validate.checkStringNotBlank(buyPrice);
+        Validate.checkStringNotNumber(buyPrice);
+        Validate.checkStringLowerThanBaseNumber(1000, buyPrice);
+        Validate.checkStringNotSpecifiedUnitNumber(1000, buyPrice);
     }
 }
