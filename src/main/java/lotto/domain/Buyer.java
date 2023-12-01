@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.common.constants.Rule;
 import lotto.common.validate.Validate;
 
 public class Buyer {
@@ -12,7 +13,7 @@ public class Buyer {
 
     public Buyer(String buyPrice) {
         validateStringBuyPrice(buyPrice);
-        this.ticketCount = Integer.parseInt(buyPrice) / 1000;
+        this.ticketCount = Integer.parseInt(buyPrice) / Rule.TICKET_PRICE.getRule();
         this.purchaseTickets = addPurchaseTickets(ticket);
     }
 
@@ -34,7 +35,7 @@ public class Buyer {
 
     private void validateStringBuyPrice(String buyPrice) {
         Validate.checkStringNotNumber(buyPrice);
-        Validate.checkStringLowerThanBaseNumber(1000, buyPrice);
-        Validate.checkStringNotSpecifiedUnitNumber(1000, buyPrice);
+        Validate.checkStringLowerThanBaseNumber(Rule.TICKET_PRICE.getRule(), buyPrice);
+        Validate.checkStringNotSpecifiedUnitNumber(Rule.TICKET_PRICE.getRule(), buyPrice);
     }
 }

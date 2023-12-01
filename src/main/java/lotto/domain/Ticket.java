@@ -2,6 +2,7 @@ package lotto.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import lotto.common.constants.Rule;
 
 public class Ticket {
     private final List<Integer> ticketNumber;
@@ -15,6 +16,9 @@ public class Ticket {
     }
 
     private List<Integer> generateTicketNumbers() {
-        return Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        return Randoms.pickUniqueNumbersInRange(
+                Rule.MIN_LOTTO_NUMBER.getRule(),
+                Rule.MAX_LOTTO_NUMBER.getRule(),
+                Rule.LOTTO_NUMBER_COUNT.getRule());
     }
 }
