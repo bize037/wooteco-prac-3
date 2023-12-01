@@ -40,9 +40,9 @@ public class Validate {
         }
     }
 
-    public static void checkListNotSameValue(int compareValue, List<Integer> inputs) {
-        inputs.forEach(input -> {
-            checkIntNotSameValue(input, compareValue);
+    public static void checkListNotSameValue(int compareValue, List<Integer> numbers) {
+        numbers.forEach(number -> {
+            checkIntNotSameValue(number, compareValue);
         });
     }
 
