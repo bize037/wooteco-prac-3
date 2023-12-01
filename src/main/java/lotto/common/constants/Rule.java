@@ -5,7 +5,7 @@ public enum Rule {
     MIN_LOTTO_NUMBER(1),
     MAX_LOTTO_NUMBER(45),
     LOTTO_TOTAL_NUMBER(6);
-    
+
     private final int rule;
 
     Rule(int message) {
