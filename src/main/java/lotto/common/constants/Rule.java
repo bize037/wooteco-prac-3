@@ -8,8 +8,8 @@ public enum Rule {
 
     private final int rule;
 
-    Rule(int message) {
-        this.rule = message;
+    Rule(int rule) {
+        this.rule = rule;
     }
 
     public int getRule() {
