@@ -12,6 +12,10 @@ public class Lotto {
         this.numbers = numbers;
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
     private void validateNumbers(List<Integer> numbers) {
         Validate.checkListNotSameSize(Rule.LOTTO_NUMBER_COUNT.getRule(), numbers);
         Validate.checkListNotSameNumber(numbers);

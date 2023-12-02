@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import lotto.common.util.Util;
 import lotto.common.validate.Validate;
+import lotto.domain.Bonus;
 import lotto.domain.Buyer;
 import lotto.domain.Lotto;
 import lotto.view.InputView;
@@ -15,6 +16,7 @@ public class LottoController {
 
     private Buyer buyer;
     private Lotto lotto;
+    private Bonus bonus;
 
     public void start() {
         buyLotto();
@@ -39,7 +41,8 @@ public class LottoController {
     }
 
     private void pickBonus() {
-
+        InputView.inputBonusNumber();
+        generateBonusNumber();
     }
 
     private void printPlaceResult() {
@@ -65,6 +68,16 @@ public class LottoController {
         } catch (IllegalArgumentException e) {
             logger.severe(e.getMessage());
             generateLottoNumber();
+        }
+    }
+
+    private void generateBonusNumber() {
+        try {
+            bonus = new Bonus(InputView.inputConsole());
+            Validate.checkListNotSameValue(bonus.getNumber(), lotto.getNumbers());
+        } catch (IllegalArgumentException e) {
+            logger.severe(e.getMessage());
+            generateBonusNumber();
         }
     }
 
