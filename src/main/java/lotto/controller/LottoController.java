@@ -23,6 +23,7 @@ public class LottoController {
         printPurchaseTickets(buyer.getTicketCount(), buyer.getPurchaseTickets());
         pickLotto();
         pickBonus();
+        printPlaceResult();
     }
 
     private void buyLotto() {
@@ -46,10 +47,9 @@ public class LottoController {
     }
 
     private void printPlaceResult() {
-
+        OutputView.outputPrizeStat();
     }
 
-    //////////////////////////////////////////////////////////////
 
     private void generateBuyLotto() {
         try {

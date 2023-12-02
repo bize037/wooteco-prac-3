@@ -20,4 +20,7 @@ public class OutputView {
         System.out.println(ticket);
     }
 
+    public static void outputPrizeStat() {
+        System.out.println(Message.OUTPUT_PRIZE_STAT.getMessage());
+    }
 }
