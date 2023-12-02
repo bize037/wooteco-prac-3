@@ -5,6 +5,7 @@ import lotto.common.constants.Message;
 import lotto.common.validate.Validate;
 
 public class InputView {
+    private final static String NEW_LINE = System.lineSeparator();
     public static String inputConsole() {
         String inputValue = Console.readLine();
         Validate.checkStringNotBlank(inputValue);
@@ -16,11 +17,10 @@ public class InputView {
     }
 
     public static void inputLottoNumber() {
-        System.out.println(Message.INPUT_LOTTO_NUMBER.getMessage());
+        System.out.println(NEW_LINE + Message.INPUT_LOTTO_NUMBER.getMessage());
     }
 
-    public static String inputBonusNumber() {
-        System.out.println(Message.INPUT_BONUS_NUMBER.getMessage());
-        return inputConsole();
+    public static void inputBonusNumber() {
+        System.out.println(NEW_LINE + Message.INPUT_BONUS_NUMBER.getMessage());
     }
 }
