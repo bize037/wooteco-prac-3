@@ -1,9 +1,11 @@
 package lotto.controller;
 
+import java.util.Arrays;
 import java.util.List;
+import lotto.common.util.Util;
+import lotto.common.validate.Validate;
 import lotto.domain.Buyer;
 import lotto.domain.Lotto;
-import lotto.domain.Ticket;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -14,10 +16,17 @@ public class LottoController {
     public void start() {
         buyLotto();
         printPurchaseTickets(buyer.getTicketCount(), buyer.getPurchaseTickets());
+        pickLotto();
+        pickBonus();
     }
 
     private void buyLotto() {
-        buyer = new Buyer(InputView.inputBuyPrice());
+        try {
+            buyer = new Buyer(InputView.inputBuyPrice());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            buyLotto();
+        }
     }
 
     private void printPurchaseTickets(int ticketCount, List<List<Integer>> purchaseTickets) {
@@ -26,6 +35,14 @@ public class LottoController {
     }
 
     private void pickLotto() {
+        try {
+            List<String> lottoNumbers = Arrays.asList(InputView.inputLottoNumber().split(","));
+            validateLottoNumbers(lottoNumbers);
+            lotto = new Lotto(Util.convertStringListToIntegerList(lottoNumbers));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            pickLotto();
+        }
     }
 
     private void pickBonus() {
@@ -34,5 +51,12 @@ public class LottoController {
 
     private void printPlaceResult() {
 
+    }
+
+    private void validateLottoNumbers(List<String> lottoNumbers) {
+        lottoNumbers.forEach(lottoNumber -> {
+            Validate.checkStringNotBlank(lottoNumber);
+            Validate.checkStringNotNumber(lottoNumber);
+        });
     }
 }
