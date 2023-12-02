@@ -40,6 +40,12 @@ public class Validate {
         }
     }
 
+    public static void checkListNotSameNumber(List<Integer> inputs) {
+        if (inputs.size() != inputs.stream().distinct().count()){
+            throw new IllegalArgumentException(ErrorMessage.NOT_SAME_VALUE.getMessage());
+        }
+    }
+
     public static void checkListNotSameValue(int compareValue, List<Integer> numbers) {
         numbers.forEach(number -> {
             checkIntNotSameValue(number, compareValue);

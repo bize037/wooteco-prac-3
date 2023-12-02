@@ -14,12 +14,13 @@ public class Lotto {
 
     private void validateNumbers(List<Integer> numbers) {
         Validate.checkListNotSameSize(Rule.LOTTO_NUMBER_COUNT.getRule(), numbers);
-        numbers.forEach(number -> {
-            validateNumber(number);
-        });
+        Validate.checkListNotSameNumber(numbers);
+        validateNumber(numbers);
     }
 
-    private void validateNumber(int number) {
-        Validate.checkIntNotOutOfRange(Rule.MIN_LOTTO_NUMBER.getRule(), Rule.MAX_LOTTO_NUMBER.getRule(), number);
+    private void validateNumber(List<Integer> numbers) {
+        numbers.forEach(number -> {
+            Validate.checkIntNotOutOfRange(Rule.MIN_LOTTO_NUMBER.getRule(), Rule.MAX_LOTTO_NUMBER.getRule(), number);
+        });
     }
 }
