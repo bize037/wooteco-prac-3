@@ -6,7 +6,7 @@ import lotto.common.constants.Rule;
 import lotto.common.validate.Validate;
 
 public class Buyer {
-    private Ticket ticket = new Ticket();
+    private Ticket ticket;
 
     private final int ticketCount;
     private final List<List<Integer>> purchaseTickets;
@@ -14,7 +14,7 @@ public class Buyer {
     public Buyer(String buyPrice) {
         validateStringBuyPrice(buyPrice);
         this.ticketCount = Integer.parseInt(buyPrice) / Rule.TICKET_PRICE.getRule();
-        this.purchaseTickets = addPurchaseTickets(ticket);
+        this.purchaseTickets = addPurchaseTickets();
     }
 
     public int getTicketCount() {
@@ -25,9 +25,10 @@ public class Buyer {
         return purchaseTickets;
     }
 
-    private List<List<Integer>> addPurchaseTickets(Ticket ticket) {
+    private List<List<Integer>> addPurchaseTickets() {
         List<List<Integer>> newPurchaseTickets = new ArrayList<>();
         for (int count = 0; count < getTicketCount(); count++) {
+            ticket = new Ticket();
             newPurchaseTickets.add(ticket.getTicketNumber());
         }
         return newPurchaseTickets;

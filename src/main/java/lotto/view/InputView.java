@@ -16,10 +16,6 @@ public class InputView {
         return inputConsole();
     }
 
-    public static void outputTicketCount() {
-        System.out.println(Message.OUTPUT_TICKET_COUNT.getMessage());
-    }
-
     public static String inputLottoNumber() {
         System.out.println(Message.INPUT_LOTTO_NUMBER.getMessage());
         return inputConsole();
