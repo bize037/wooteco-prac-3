@@ -5,20 +5,18 @@ import lotto.common.constants.Message;
 import lotto.common.validate.Validate;
 
 public class InputView {
-    private static String inputConsole() {
+    public static String inputConsole() {
         String inputValue = Console.readLine();
         Validate.checkStringNotBlank(inputValue);
         return inputValue;
     }
 
-    public static String inputBuyPrice() {
+    public static void inputBuyPrice() {
         System.out.println(Message.INPUT_BUY_PRICE.getMessage());
-        return inputConsole();
     }
 
-    public static String inputLottoNumber() {
+    public static void inputLottoNumber() {
         System.out.println(Message.INPUT_LOTTO_NUMBER.getMessage());
-        return inputConsole();
     }
 
     public static String inputBonusNumber() {
