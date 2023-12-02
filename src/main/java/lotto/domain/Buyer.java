@@ -36,6 +36,6 @@ public class Buyer {
     private void validateStringBuyPrice(String buyPrice) {
         Validate.checkStringNotNumber(buyPrice);
         Validate.checkStringLowerThanBaseNumber(Rule.TICKET_PRICE.getRule(), buyPrice);
-        Validate.checkStringNotSpecifiedUnitNumber(Rule.TICKET_PRICE.getRule(), buyPrice);
+        Validate.checkIntNotSpecifiedUnitNumber(Rule.TICKET_PRICE.getRule(), Integer.parseInt(buyPrice));
     }
 }

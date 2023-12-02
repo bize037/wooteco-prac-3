@@ -22,8 +22,8 @@ public class Validate {
         }
     }
 
-    public static void checkStringNotSpecifiedUnitNumber(int unit, String input) {
-        if (Integer.parseInt(input) % unit != 0) {
+    public static void checkIntNotSpecifiedUnitNumber(int unit, int input) {
+        if (input % unit != 0) {
             throw new IllegalArgumentException(ErrorMessage.NOT_SPECIFIED_UNIT_NUMBER.getMessage());
         }
     }
