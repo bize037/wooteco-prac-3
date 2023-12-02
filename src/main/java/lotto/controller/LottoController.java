@@ -50,7 +50,6 @@ public class LottoController {
         OutputView.outputPrizeStat();
     }
 
-
     private void generateBuyLotto() {
         try {
             buyer = new Buyer(InputView.inputConsole());
