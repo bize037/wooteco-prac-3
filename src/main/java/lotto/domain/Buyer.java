@@ -6,8 +6,6 @@ import lotto.common.constants.Rule;
 import lotto.common.validate.Validate;
 
 public class Buyer {
-    private Ticket ticket;
-
     private final int ticketCount;
     private final List<List<Integer>> purchaseTickets;
 
@@ -28,7 +26,7 @@ public class Buyer {
     private List<List<Integer>> addPurchaseTickets() {
         List<List<Integer>> newPurchaseTickets = new ArrayList<>();
         for (int count = 0; count < getTicketCount(); count++) {
-            ticket = new Ticket();
+            Ticket ticket = new Ticket();
             newPurchaseTickets.add(ticket.getTicketNumber());
         }
         return newPurchaseTickets;
