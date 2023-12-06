@@ -31,7 +31,6 @@ public class Referee {
         }
     }
 
-    // point에 해당하는 place를 찾아 matchingCountNumbers의 listIndex에 1을 더하는 메서드
     public void updateMatchingCount(double point) {
         for (Place place : Place.values()) {
             if (point >= place.getPoint()) {
