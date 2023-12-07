@@ -20,4 +20,8 @@ public class OutputView {
         System.out.println(NEW_LINE + Message.OUTPUT_PRIZE_STAT.getMessage());
         System.out.println(DIVIDING_LINE);
     }
+
+    public static void outputProfitRate() {
+        System.out.printf((Message.OUTPUT_PROFIT_RATE.getMessage()) + "%n", 50);
+    }
 }
