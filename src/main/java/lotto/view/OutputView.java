@@ -1,6 +1,5 @@
 package lotto.view;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import lotto.common.constants.Message;
 
@@ -22,6 +21,6 @@ public class OutputView {
     }
 
     public static void outputProfitRate() {
-        System.out.printf((Message.OUTPUT_PROFIT_RATE.getMessage()) + "%n", 50);
+        System.out.println(String.format(Message.OUTPUT_PROFIT_RATE.getMessage(), 50));
     }
 }
