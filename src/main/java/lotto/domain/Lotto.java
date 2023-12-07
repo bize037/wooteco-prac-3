@@ -4,16 +4,9 @@ import java.util.List;
 import lotto.common.constants.Rule;
 import lotto.common.validate.Validate;
 
-public class Lotto {
-    private final List<Integer> numbers;
-
-    public Lotto(List<Integer> numbers) {
+public record Lotto(List<Integer> numbers) {
+    public Lotto {
         validateNumbers(numbers);
-        this.numbers = numbers;
-    }
-
-    public List<Integer> getNumbers() {
-        return numbers;
     }
 
     private void validateNumbers(List<Integer> numbers) {

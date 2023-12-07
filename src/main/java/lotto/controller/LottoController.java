@@ -73,7 +73,7 @@ public class LottoController {
     private void generateBonusNumber() {
         try {
             bonus = new Bonus(InputView.inputConsole());
-            Validate.checkListNotSameValue(bonus.getNumber(), lotto.getNumbers());
+            Validate.checkListNotSameValue(bonus.getNumber(), lotto.numbers());
         } catch (IllegalArgumentException e) {
             logger.severe(e.getMessage());
             generateBonusNumber();
