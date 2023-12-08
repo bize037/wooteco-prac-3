@@ -141,6 +141,7 @@
 - 제공 정보 : 티켓들 번호들, 로또 당첨 번호들, 보너스 번호
 - 세부 설계
 ```
+// 계산 시
 placePoints = new ArrayList<>(Collections.nCopies(5, 0))
 int totalPrize = 0
 for 티켓들 번호들 : 티켓 번호들
@@ -154,6 +155,7 @@ for 티켓들 번호들 : 티켓 번호들
     placePoints.set(index, placePoints.get(index) + 1)
     int prize += Place.point에 해당하는 Place.cashPrize
 
+// 출력 시
 for Place place : Place.values()
   print String.format(place.message, placePoints[place.listIndex])
   
