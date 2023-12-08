@@ -151,6 +151,9 @@ for 티켓들 번호들 : 티켓 번호들
   if point >= Place.point
     int index = Place.point에 해당하는 Place.listIndex
     placePoints.set(index, placePoints.get(index) + 1)
+
+for Place place : Place.values()
+  print String.format(place.message, placePoints[place.listIndex])
 ```
 
 
