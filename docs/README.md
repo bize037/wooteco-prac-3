@@ -140,9 +140,18 @@
 - 수행 작업 : 점수 계산, 등수 판단, 수익률 판단
 - 제공 정보 : 티켓들 번호들, 로또 당첨 번호들, 보너스 번호
 - 세부 설계
-  - 티켓
-
-
+```
+placePoints = new ArrayList<>(Collections.nCopies(5, 0));
+for 티켓들 번호들 : 티켓 번호들
+  point = 0
+  removeAll 티켓 번호들.로또 당첨 번호들
+  point += 남은 티켓 번호들 개수
+  if 보너스 번호 in 남은 티켓 번호들
+    point += 0.5
+  if point >= Place.point
+    int index = Place.point에 해당하는 Place.listIndex
+    placePoints.set(index, placePoints.get(index) + 1)
+```
 
 
 
